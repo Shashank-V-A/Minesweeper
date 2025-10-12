@@ -1,0 +1,109 @@
+.cell {
+  width: 32px;
+  height: 32px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  font-family: 'Courier New', monospace;
+}
+
+.cell:focus {
+  outline: none;
+}
+
+.cell.hidden {
+  background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-right: 2px solid #adb5bd;
+  border-bottom: 2px solid #adb5bd;
+  box-shadow: inset 1px 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+.cell.hidden:hover:not(:disabled) {
+  background: linear-gradient(135deg, #f1f3f4 0%, #e9ecef 100%);
+}
+
+.cell.hidden:active:not(:disabled) {
+  background: linear-gradient(135deg, #dee2e6 0%, #ced4da 100%);
+  border-top: 2px solid #adb5bd;
+  border-left: 2px solid #adb5bd;
+  border-right: 2px solid #ffffff;
+  border-bottom: 2px solid #ffffff;
+  box-shadow: inset -1px -1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.cell.revealed {
+  background-color: #f8f9fa;
+  border: 1px solid #dee2e6;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  cursor: default;
+}
+
+.cell.mine {
+  background-color: #dc3545;
+  color: #000;
+}
+
+.cell.mine.exploded {
+  background-color: #dc3545;
+  animation: explode 0.5s ease-in-out;
+}
+
+@keyframes explode {
+  0% { background-color: #dc3545; transform: scale(1); }
+  50% { background-color: #ff6b6b; transform: scale(1.1); }
+  100% { background-color: #dc3545; transform: scale(1); }
+}
+
+.cell.flagged {
+  background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+}
+
+/* Number colors - classic Minesweeper style */
+.cell.number-1 {
+  color: #0066cc;
+}
+
+.cell.number-2 {
+  color: #009900;
+}
+
+.cell.number-3 {
+  color: #cc0000;
+}
+
+.cell.number-4 {
+  color: #000066;
+}
+
+.cell.number-5 {
+  color: #660000;
+}
+
+.cell.number-6 {
+  color: #006666;
+}
+
+.cell.number-7 {
+  color: #000000;
+}
+
+.cell.number-8 {
+  color: #666666;
+}
+
+.cell:disabled {
+  cursor: not-allowed;
+}
+
+.cell:disabled.hidden {
+  opacity: 0.8;
+}
